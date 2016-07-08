@@ -18,4 +18,5 @@ def saveTask(taskString):
     with open(dbPath, "a") as myfile:
         myfile.write(taskString)
 
-saveTask("parsedTask")
+parsedTask = parseArguments(sys.argv)
+saveTask(parsedTask)
