@@ -1,3 +1,5 @@
+#!/usr/local/bin/python3
+
 import sys
 import pdb
 import random
@@ -62,7 +64,7 @@ def take_all_walks(steps, runs):
         dy = end_location[1]
         total_d += math.sqrt(dx*dx + dy*dy)
 
-    print( "AFD: ", total_d/runs )
+#    print( "AFD: ", total_d/runs )         # This works but is currently turned off
     return endpoints
 
 def average_final_distance(endpoints):
