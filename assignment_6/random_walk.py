@@ -54,9 +54,15 @@ def take_walk(steps):
 
 def take_all_walks(steps, runs):
     endpoints = []
+    total_d = 0
     for run_index in range(runs):
         end_location = take_walk(steps)
         endpoints.append(end_location)
+        dx = end_location[0]
+        dy = end_location[1]
+        total_d += math.sqrt(dx*dx + dy*dy)
+
+    print( "AFD: ", total_d/runs )
     return endpoints
 
 def average_final_distance(endpoints):
