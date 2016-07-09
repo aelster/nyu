@@ -5,6 +5,8 @@ import pdb
 import random
 import math
 
+avg_final_distance = 0     # defined out here this is a global variable
+
 def get_random_direction():
     direction = ""
     probability = random.random()
@@ -55,6 +57,8 @@ def take_walk(steps):
     return current_location
 
 def take_all_walks(steps, runs):
+    global avg_final_distance     # use the global variable, not a local copy 
+
     endpoints = []
     total_d = 0
     for run_index in range(runs):
@@ -64,7 +68,7 @@ def take_all_walks(steps, runs):
         dy = end_location[1]
         total_d += math.sqrt(dx*dx + dy*dy)
 
-#    print( "AFD: ", total_d/runs )         # This works but is currently turned off
+    avg_final_distance = total_d/runs      # calculate the value
     return endpoints
 
 def average_final_distance(endpoints):
@@ -104,3 +108,4 @@ if __name__ == "__main__":
 #    print(end_locations)
 
     print("Average final distance: ",average_final_distance(end_locations))
+    print("Average final distance (global): ", avg_final_distance )     # use the global variable
